@@ -4,7 +4,7 @@
   "authors": [
     "Doug Johnston <dbjohnston@gmail.com>"
   ],
-  "description": "Components for the Angular Drum Machine",
+  "description": "Components for the Angular SingleSpa Machine",
   "license": "MIT",
   "private": true,
   "ignore": [

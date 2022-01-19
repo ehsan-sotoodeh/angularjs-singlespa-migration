@@ -8,7 +8,6 @@ module.exports = function(grunt) {
     // Metadata.
     meta: {
         basePath: './',
-        srcPath: './public/sass/',
         deployPath: './public/assets/css/',
         bowerPath: './public/assets/bower_components/'
     },
@@ -35,17 +34,7 @@ module.exports = function(grunt) {
       }
     },
 
-    sass: {
-      dist: {
-        options: {
-          style: 'compressed',
-          loadPath: ['<%= meta.bowerPath %>foundation/scss/', '<%= meta.bowerPath %>foundation/scss/foundation/components/']
-        },
-        files: {
-            '<%= meta.deployPath %>main.css': '<%= meta.srcPath %>main.scss'
-        }
-      }
-    },
+
 
     uglify: {
       options: {
@@ -53,16 +42,13 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'public/assets/js/angular_drums.min.js': ['public/assets/bower_components/angular-route/angular-route.min.js', 'public/assets/bower_components/howler/howler.min.js', 'public/app/**/*.js']
+          'public/assets/js/angular_src.min.js': ['public/assets/bower_components/angular-route/angular-route.min.js', 'public/assets/bower_components/howler/howler.min.js', 'public/app/**/*.js']
         }
       }
     },
 
     watch: {
-      sasstocss: {
-        files: ['<%= meta.srcPath %>/**/*.scss'],
-        tasks: ['sass']
-      },
+
 
       /* watch and see if our javascript files change, or new packages are installed */
       js: {
@@ -80,12 +66,12 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  // grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task.
-  grunt.registerTask('default', ['sass', 'uglify', 'connect', 'watch']);
-  grunt.registerTask('test', ['sass', 'uglify', 'karma:unit:start', 'connect', 'watch']);
+  grunt.registerTask('default', [ 'uglify', 'connect', 'watch']);
+  grunt.registerTask('test', [ 'uglify', 'karma:unit:start', 'connect', 'watch']);
 };

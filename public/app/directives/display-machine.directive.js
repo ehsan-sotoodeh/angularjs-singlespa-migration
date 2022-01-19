@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-.module('AngularDrumMachine')
+.module('AngularNgSingleSpa')
 .directive('displayMachine', [function() {
   return {
     restrict: 'E',

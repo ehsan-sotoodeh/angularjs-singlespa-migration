@@ -1,16 +1,16 @@
-var drumMachineApp = window.singleSpaAngularjs.default({
+var kaizenSingleSpaApp = window.singleSpaAngularjs.default({
   angular: window.angular,
   domElementGetter: function () {
-    return document.getElementById('drum-machine')
+    return document.getElementById('kaizen-ng-single-spa')
   },
-  mainAngularModule: 'AngularDrumMachine',
+  mainAngularModule: 'AngularNgSingleSpa',
   uiRouter: false,
   preserveGlobal: true,
   template: '<display-machine />',
 })
 
-window.singleSpa.registerApplication('drum-machine', drumMachineApp, function activityFunction(location) {
-  return location.hash.startsWith('#/drums');
+window.singleSpa.registerApplication('kaizen-ng-single-spa', kaizenSingleSpaApp, function activityFunction(location) {
+  return location.hash.startsWith('#/singlespa');
 })
 
 var helloWorldApp = {
