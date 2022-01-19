@@ -1,12 +1,12 @@
 var kaizenSingleSpaApp = window.singleSpaAngularjs.default({
   angular: window.angular,
   domElementGetter: function () {
-    return document.getElementById('kaizen-ng-single-spa')
+    return document.getElementById('load-angular-here')
   },
   mainAngularModule: 'AngularNgSingleSpa',
   uiRouter: false,
   preserveGlobal: true,
-  template: '<display-machine />',
+  template: '<display-singlespa />',
 })
 
 window.singleSpa.registerApplication('kaizen-ng-single-spa', kaizenSingleSpaApp, function activityFunction(location) {

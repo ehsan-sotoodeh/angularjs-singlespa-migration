@@ -2,9 +2,9 @@
 
 angular
 .module('AngularNgSingleSpa')
-.directive('displayMachine', [function() {
+.directive('displaySinglespa', [function() {
   return {
     restrict: 'E',
-    templateUrl: 'assets/templates/display-machine.template.html',
+    templateUrl: 'assets/templates/display-singlespa.template.html',
   }
 }])
