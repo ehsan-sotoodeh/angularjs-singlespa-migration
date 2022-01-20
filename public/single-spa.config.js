@@ -3,7 +3,7 @@ var kaizenSingleSpaApp = window.singleSpaAngularjs.default({
   domElementGetter: function () {
     return document.getElementById('load-angular-here')
   },
-  mainAngularModule: 'AngularNgSingleSpa',
+  mainAngularModule: 'AngularSingleSpa',
   uiRouter: false,
   preserveGlobal: true,
   template: '<display-singlespa />',

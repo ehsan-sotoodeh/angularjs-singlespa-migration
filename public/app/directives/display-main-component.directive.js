@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-.module('AngularNgSingleSpa')
+.module('AngularSingleSpa')
 .directive('displaySinglespa', [function() {
   return {
     restrict: 'E',
