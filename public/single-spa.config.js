@@ -10,7 +10,7 @@ var kaizenSingleSpaApp = window.singleSpaAngularjs.default({
 })
 
 window.singleSpa.registerApplication('kaizen-ng-single-spa', kaizenSingleSpaApp, function activityFunction(location) {
-  return location.hash.startsWith('#/singlespa');
+  return location.hash.startsWith('#/');
 })
 
 var helloWorldApp = {

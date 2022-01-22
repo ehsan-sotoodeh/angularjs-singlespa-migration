@@ -3,7 +3,7 @@
   <!-- Get rid of ng-app so it doesnt mount immeditately -->
 <head>
   <meta charset="utf-8" />
-  <title>Angular SingleSpa Machine - Built with AngularJS</title>
+  <title>Test project</title>
 
   <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Oleo+Script+Swash+Caps' rel='stylesheet' type='text/css'>
   <!--<link rel="stylesheet" href="/assets/bower_components/foundation/css/normalize.css">-->
@@ -11,14 +11,20 @@
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.js"></script>
+
   <script src="https://unpkg.com/single-spa"></script>
   <script src="https://unpkg.com/single-spa-angularjs"></script>
 </head>
 <body>
+
   <a class="navitem" href="#/singlespa">SingleSpa app</a>
+  <a class="navitem" href="#/home">home</a>
   <a class="navitem" href="#/hello">Hello world app</a>
   <div id="load-angular-here" />
   <script src="/assets/js/angular_src.min.js"></script>
   <script src="single-spa.config.js"></script>
+  <div ng-view></div>
+
 </body>
 </html>
