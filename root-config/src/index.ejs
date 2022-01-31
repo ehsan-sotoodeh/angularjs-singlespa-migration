@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React Microfrontends</title>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script src="https://unpkg.com/single-spa"></script>
+  <script src="https://unpkg.com/single-spa-angularjs@4.3.1/lib/single-spa-angularjs.js"></script>
+  <!-- <script src="http://localhost:8001/single-spa.config.js"></script> -->
+
+  <meta name="importmap-type" content="systemjs-importmap" />
+  <!-- <script type="systemjs-importmap" src="https://storage.googleapis.com/react.microfrontends.app/importmap.json"></script> -->
+  <% if (isLocal) { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "react": "https://cdn.jsdelivr.net/npm/react@17.0.1/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.1/umd/react-dom.production.min.js",
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.8.2/lib/system/single-spa.min.js",
+        "@react-mf/root-config": "//localhost:8000/react-mf-root-config.js",
+        "@react-mf/ctx": "http://localhost:8003/react-mf-ctx.js",
+        "@react-mf/styleguide": "//localhost:8004/react-mf-styleguide.js"
+
+
+      }
+    }
+  </script>
+  <script>
+    console.log("Local Development Environment")
+
+  </script>
+  <% } else { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "react": "https://cdn.jsdelivr.net/npm/react@17.0.1/umd/react.production.min.js",
+          "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.1/umd/react-dom.production.min.js",
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.8.2/lib/system/single-spa.min.js",
+          "@react-mf/root-config": "https://react.microfrontends.app/root-config/55aa0b39bcca3e3d0844b2c0aa2f658a2aa1b94f/react-mf-root-config.js",
+          "@react-mf/navbar": "https://react.microfrontends.app/navbar/c1a777c770ee187cebedd0724653c771495f2af9/react-mf-navbar.js",
+          "@react-mf/styleguide": "https://react.microfrontends.app/styleguide/504c8516e30274fc0e3221a719d5355b14af9500/react-mf-styleguide.js",
+          "@react-mf/people": "https://react.microfrontends.app/people/4d0af0a673764fa9b311f9f98163c88be9af9426/react-mf-people.js",
+          "@react-mf/api": "https://react.microfrontends.app/api/849cde43d1bf1a072c1b71b4de504fc7120d4629/react-mf-api.js",
+          "@react-mf/planets": "https://react.microfrontends.app/planets/010c38f36fc578c406f1aa44d16f6aad9062f2f2/react-mf-planets.js",
+          "@react-mf/things": "https://react.microfrontends.app/things/7f209a1ed9ac9690835c57a3a8eb59c17114bb1d/react-mf-things.js",
+          "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.6.3/system/es2015/rxjs.min.js",
+          "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.6.3/system/es2015/rxjs-operators.min.js",
+          "@react-mf/api/": "https://react.microfrontends.app/api/849cde43d1bf1a072c1b71b4de504fc7120d4629/",
+          "@react-mf/people/": "https://react.microfrontends.app/people/4d0af0a673764fa9b311f9f98163c88be9af9426/",
+          "@react-mf/navbar/": "https://react.microfrontends.app/navbar/c1a777c770ee187cebedd0724653c771495f2af9/",
+          "@react-mf/planets/": "https://react.microfrontends.app/planets/010c38f36fc578c406f1aa44d16f6aad9062f2f2/",
+          "@react-mf/styleguide/": "https://react.microfrontends.app/styleguide/504c8516e30274fc0e3221a719d5355b14af9500/",
+          "@react-mf/root-config/": "https://react.microfrontends.app/root-config/55aa0b39bcca3e3d0844b2c0aa2f658a2aa1b94f/"
+        }
+      }
+    </script>
+  <% }%>
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+  <template id="single-spa-layout">
+    <single-spa-router>
+      <!-- <nav class="topnav">
+        <application name="@react-mf/navbar" loader="topNav" error="topNav"></application>
+      </nav> -->
+      <div class="main-content mt-16">
+        <route path="ctx">
+          <p class="max-w-md">CTX should load here.</p>
+          <application name="@react-mf/ctx"></application>
+        </route>
+        <route default>
+          <br/>
+          <h1>Home Page...</h1>
+        </route>
+
+      </div>
+    </single-spa-router>
+  </template>
+</head>
+<body>
+  <script>
+    System.import('@react-mf/root-config');
+    System.import('@react-mf/styleguide');
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+</html>
