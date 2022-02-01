@@ -68,9 +68,11 @@ var app = angular
     preserveGlobal: false,
     template: '<display-singlespa />',
   })
-  singleSpa.registerApplication('AngularSingleSpa', myAngularApp, function activityFunction(location) {
-    return location.hash.startsWith('');
-  })
+
+  console.log(myAngularApp)
+  // singleSpa.registerApplication('AngularSingleSpa', myAngularApp, function activityFunction(location) {
+  //   return location.hash.startsWith('');
+  // })
   
   
-  singleSpa.start()
+  // singleSpa.start()

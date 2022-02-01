@@ -27,19 +27,24 @@ const layoutEngine = constructLayoutEngine({
 applications.forEach(registerApplication);
 console.log(myAngularApp)
 
-singleSpa.registerApplication({
-  name: 'angularjs2',
-  app: myAngularApp,
-  activeWhen: function activityFunction(location) {
+// singleSpa.registerApplication({
+//   name: 'angularjs2',
+//   app: myAngularApp,
+//   activeWhen: function activityFunction(location) {
+//     return location.hash.startsWith('');
+//   }
+// });
+
+
+  registerApplication('AngularSingleSpa', myAngularApp, function activityFunction(location) {
     return location.hash.startsWith('');
-  }
-});
-
-
-
+  })
+  
+  
 
 System.import("@react-mf/styleguide").then(() => {
   // Activate the layout engine once the styleguide CSS is loaded
   layoutEngine.activate();
   start();
+
 });
