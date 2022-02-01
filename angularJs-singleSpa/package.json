@@ -23,11 +23,9 @@
     "karma-firefox-launcher": "latest",
     "karma-html2js-preprocessor": "latest",
     "karma-jasmine": "latest",
-    "karma-phantomjs-launcher": "~0.2",
     "karma-requirejs": "latest",
     "karma-script-launcher": "latest",
     "karma-spec-reporter": "latest",
-    "phantomjs-prebuilt": "latest",
     "requirejs": "latest"
   },
   "author": "Doug Johnston",

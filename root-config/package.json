@@ -6,8 +6,7 @@
     "test": "jest --passWithNoTests",
     "format": "prettier --write .",
     "build": "webpack --mode=production",
-    "analyze": "webpack --env analyze",
-    "prepare": "husky install"
+    "analyze": "webpack --env analyze"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

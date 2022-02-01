@@ -1,3 +1,4 @@
+
 var kaizenSingleSpaApp = window.singleSpaAngularjs.default({
   angular: window.angular,
   domElementGetter: function () {
@@ -9,11 +10,10 @@ var kaizenSingleSpaApp = window.singleSpaAngularjs.default({
   template: '<display-singlespa />',
 })
 
+// singleSpa.registerApplication('angularjs3', kaizenSingleSpaApp, function activityFunction(location) {
+//   return location.hash.startsWith('');
+// })
 
-window.singleSpa.registerApplication('kaizen-ng-single-spa', kaizenSingleSpaApp, function activityFunction(location) {
-  return location.hash.startsWith('');
-})
 
-
-window.singleSpa.start()
+// singleSpa.start()
 

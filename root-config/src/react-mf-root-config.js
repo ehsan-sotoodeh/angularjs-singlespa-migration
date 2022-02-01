@@ -13,7 +13,6 @@ const routes = constructRoutes(document.querySelector("#single-spa-layout"), {
     topNav: "<h1>Failed to load topnav</h1>",
   },
 });
-console.log(routes)
 const applications = constructApplications({
   routes,
   loadApp: ({ name }) => System.import(name),
@@ -26,6 +25,18 @@ const layoutEngine = constructLayoutEngine({
 });
 
 applications.forEach(registerApplication);
+console.log(myAngularApp)
+
+singleSpa.registerApplication({
+  name: 'angularjs2',
+  app: myAngularApp,
+  activeWhen: function activityFunction(location) {
+    return location.hash.startsWith('');
+  }
+});
+
+
+
 
 System.import("@react-mf/styleguide").then(() => {
   // Activate the layout engine once the styleguide CSS is loaded

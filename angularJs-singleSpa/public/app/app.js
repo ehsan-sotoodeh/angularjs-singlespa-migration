@@ -6,26 +6,32 @@ var app = angular
     function () {
       return {
         restrict: "E",
-        templateUrl: "assets/templates/display-singlespa.template.html",
+        templateUrl: "http://localhost:8001/assets/templates/display-singlespa.template.html",
       };
     },
   ])
   .config(function ($routeProvider) {
     $routeProvider.when("/", {
-      templateUrl: "assets/templates/home.template.html",
+      templateUrl: "http://localhost:8001/assets/templates/home.template.html",
       controller: "homeController",
     })
     $routeProvider.when("/pageOne", {
-      templateUrl: "assets/templates/pageOne.template.html",
+      templateUrl: "http://localhost:8001/assets/templates/pageOne.template.html",
       controller: "pageOneController",
     })
     $routeProvider.when("/pageTwo", {
-      templateUrl: "assets/templates/pageTwo.template.html",
+      templateUrl: "http://localhost:8001/assets/templates/pageTwo.template.html",
       controller: "pageTwoController",
     })
     
     ;
   })
+  .config(['$sceDelegateProvider', function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'self',
+        'http://localhost:8001/**'
+    ]);
+}])
   .run([
     "$q",
     "$rootScope",
@@ -34,3 +40,37 @@ var app = angular
       $rootScope.loading = true;
     },
   ]);
+
+  // System.register([], function(_export) {
+  //   return {
+  //     execute: function() {
+  //       _export(window.singleSpaAngularjs.default({
+  //         angular: angular,
+  //         domElementGetter: function () {
+  //           return document.getElementById('load-angular-here')
+  //         },
+  //         mainAngularModule: 'angularjs',
+  //         uiRouter: true,
+  //         preserveGlobal: false,
+  //         template: '<display-singlespa />',
+  //       }))
+  //     }
+  //   }
+  // })
+
+ var myAngularApp = window.singleSpaAngularjs.default({
+    angular: angular,
+    domElementGetter: function () {
+      return document.getElementById('load-angular-here')
+    },
+    mainAngularModule: 'AngularSingleSpa',
+    uiRouter: true,
+    preserveGlobal: false,
+    template: '<display-singlespa />',
+  })
+  singleSpa.registerApplication('AngularSingleSpa', myAngularApp, function activityFunction(location) {
+    return location.hash.startsWith('');
+  })
+  
+  
+  singleSpa.start()
