@@ -21,7 +21,17 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 8001,
-          base: './public'
+          base: './public',
+          hostname: 'localhost',
+          middleware: function(connect, options, middlewares) {
+            middlewares.unshift(function(req, res, next) {
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                res.setHeader('Access-Control-Allow-Methods', '*');
+                next();
+            });
+  
+            return middlewares;
+          }
         }
       }
     },
