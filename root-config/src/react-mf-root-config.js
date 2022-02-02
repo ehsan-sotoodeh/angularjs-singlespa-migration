@@ -54,6 +54,19 @@ const layoutEngine = constructLayoutEngine({
 
   })
 
+  var angularSingleSpaSidebar = window.singleSpaAngularjs.default({
+    angular: angular,
+    domElementGetter: function () {
+      return document.getElementById('load-sidebar-angular-here')
+    },
+    mainAngularModule: 'AngularSingleSpaSidebar',
+    uiRouter: true,
+    preserveGlobal: false,
+    template: '<display-singlespa-sidebar />',
+    elementId: "__single_spa_header"
+
+  })
+
 
 
   applications.push({name:'AngularSingleSpaMain', app: angularSingleSpaMain, activeWhen:function activityFunction(location) {
@@ -62,8 +75,10 @@ const layoutEngine = constructLayoutEngine({
   applications.push({name:'AngularSingleSpaHeader', app: angularSingleSpaHeader, activeWhen:function activityFunction(location) {
     return location.hash.startsWith('');
   }})
-  console.log('angularSingleSpaMain',angularSingleSpaMain)
-  console.log('angularSingleSpaHeader',angularSingleSpaHeader)
+  applications.push({name:'angularSingleSpaSidebar', app: angularSingleSpaSidebar, activeWhen:function activityFunction(location) {
+    return location.hash.startsWith('');
+  }})
+
   
   applications.forEach(registerApplication);
 
