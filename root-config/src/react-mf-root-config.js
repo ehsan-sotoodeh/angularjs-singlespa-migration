@@ -70,7 +70,12 @@ const layoutEngine = constructLayoutEngine({
 
 
   applications.push({name:'AngularSingleSpaMain', app: angularSingleSpaMain, activeWhen:function activityFunction(location) {
-    return location.hash.startsWith('');
+    return (
+      location.hash.startsWith('') ||
+      location.hash.startsWith('/home') ||
+      location.hash.startsWith('/pageOne') ||
+      location.hash.startsWith('/pageTwo')
+      );
   }})
   applications.push({name:'AngularSingleSpaHeader', app: angularSingleSpaHeader, activeWhen:function activityFunction(location) {
     return location.hash.startsWith('');

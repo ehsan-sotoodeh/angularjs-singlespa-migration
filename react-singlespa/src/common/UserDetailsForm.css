@@ -1,0 +1,81 @@
+
+  
+.avatar {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+  
+.user-info {
+  text-align: left;
+}
+
+.preview{
+  padding: .375rem .75rem;
+}
+
+.commands {
+  float: right;
+}
+
+button.upload {
+  font-size: xx-small;
+  float: right;
+}
+
+button.close-image > span{
+  color: red;
+}
+
+button.close-image {
+  position: absolute;
+  right: -5px;
+  width: 1.5rem;
+  height: auto;
+  border-radius: 50%;
+  top: -5px;
+  padding: 5px;
+}
+
+div.upload {
+  min-height: 30px;
+}
+
+.calendar-field {
+  width: 9rem;
+}
+
+.userprofile-field .form-group {
+  margin-bottom: 2px !important;
+  max-width: 30rem;
+}
+
+.custom-field:disabled {
+  color: #74788d;
+  background-color: #eff2f7;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  opacity: 0.3 !important;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  opacity: 0.3 !important;
+}
+
+::placeholder {
+  opacity: 0.3 !important;
+}
+
+.custom-select {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='none' stroke='black' d='M0 0 L2 2 L4 0'/></svg>");
+}
+
+/* .select-selected:after {
+  position: absolute;
+  content: "\2304";
+  right: 15px;
+  width: 0;
+  height: 0;
+} */

@@ -20,14 +20,16 @@
     {
       "imports": {
         "react": "https://cdn.jsdelivr.net/npm/react@17.0.1/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.1/umd/react-dom.production.min.js",
         "angularjs": "//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js",
         "single-spa-angularjs": "https://unpkg.com/single-spa-angularjs@4.3.1/lib/single-spa-angularjs.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.1/umd/react-dom.production.min.js",
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.8.2/lib/system/single-spa.min.js",
         "@react-mf/root-config": "//localhost:8000/react-mf-root-config.js",
         "@react-mf/styleguide": "//localhost:8004/react-mf-styleguide.js",
         "@react-mf/angularjsHeader": "//localhost:8001/assets/js/angular_src.min.js",
-        "@react-mf/angularjs": "//localhost:8002/assets/js/angular_src.min.js"
+        "@react-mf/angularjs": "//localhost:8002/assets/js/angular_src.min.js",
+        "@react-mf/admin": "//localhost:8003/react-mf-admin.js"
+
 
       }
     }
@@ -70,28 +72,25 @@
       <!-- <nav class="topnav">
         <application name="@react-mf/navbar" loader="topNav" error="topNav"></application>
       </nav> -->
-      <div class="main-content mt-16">
-        <route path="ctx">
-          <p class="max-w-md">CTX should load here.</p>
-        </route>
-        <route default>
-          <!-- <application name="@react-mf/angularjs"></application> -->
-        </route>
-
+      <div id="load-header-angular-here" ></div>
+      <div>
+          <div style="width:30%; height: 100%; float:left">
+            <div id="load-sidebar-angular-here" ></div>
+          </div>
+          <div style="width: 70%; height: 100%; float:right">
+            <div id="load-main-angular-here" ></div>
+          </div>
+          <route path="#/admin">
+            <application name="@react-mf/admin"></application>
+          </route>
       </div>
+      <route default>
+      </route>
     </single-spa-router>
   </template>
 </head>
 <body>
-  <div id="load-header-angular-here" ></div>
-  <div>
-      <div style="width:30%; height: 100%; float:left">
-        <div id="load-sidebar-angular-here" ></div>
-      </div>
-      <div style="width: 70%; height: 100%; float:right">
-        <div id="load-main-angular-here" ></div>
-      </div>
-  </div>
+
 
   <script>
     System.import('@react-mf/root-config');
