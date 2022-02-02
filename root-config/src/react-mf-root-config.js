@@ -24,22 +24,49 @@ const layoutEngine = constructLayoutEngine({
   active: false,
 });
 
-applications.forEach(registerApplication);
-console.log(myAngularApp)
-
-// singleSpa.registerApplication({
-//   name: 'angularjs2',
-//   app: myAngularApp,
-//   activeWhen: function activityFunction(location) {
-//     return location.hash.startsWith('');
-//   }
-// });
 
 
-  registerApplication('AngularSingleSpa', myAngularApp, function activityFunction(location) {
-    return location.hash.startsWith('');
+
+
+  var angularSingleSpaMain = window.singleSpaAngularjs.default({
+    angular: angular,
+    domElementGetter: function () {
+      return document.getElementById('load-main-angular-here')
+    },
+    mainAngularModule: 'AngularSingleSpaMain',
+    uiRouter: true,
+    preserveGlobal: false,
+    template: '<display-singlespa />',
+    elementId: "__single_spa_main"
+
   })
+
+  var angularSingleSpaHeader = window.singleSpaAngularjs.default({
+    angular: angular,
+    domElementGetter: function () {
+      return document.getElementById('load-header-angular-here')
+    },
+    mainAngularModule: 'AngularSingleSpaHeader',
+    uiRouter: true,
+    preserveGlobal: false,
+    template: '<display-singlespa-header />',
+    elementId: "__single_spa_header"
+
+  })
+
+
+
+  applications.push({name:'AngularSingleSpaMain', app: angularSingleSpaMain, activeWhen:function activityFunction(location) {
+    return location.hash.startsWith('');
+  }})
+  applications.push({name:'AngularSingleSpaHeader', app: angularSingleSpaHeader, activeWhen:function activityFunction(location) {
+    return location.hash.startsWith('');
+  }})
+  console.log('angularSingleSpaMain',angularSingleSpaMain)
+  console.log('angularSingleSpaHeader',angularSingleSpaHeader)
   
+  applications.forEach(registerApplication);
+
   
 
 System.import("@react-mf/styleguide").then(() => {

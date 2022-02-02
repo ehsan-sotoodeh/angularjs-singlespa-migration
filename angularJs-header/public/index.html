@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+  <!-- Get rid of ng-app so it doesnt mount immeditately -->
+<head>
+  <meta charset="utf-8" />
+  <title>Test project</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Oleo+Script+Swash+Caps' rel='stylesheet' type='text/css'>
+  <!--<link rel="stylesheet" href="/assets/bower_components/foundation/css/normalize.css">-->
+  <!--<link rel="stylesheet" href="/assets/bower_components/foundation/css/foundation.min.css">-->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.js"></script>
+
+  <script src="https://unpkg.com/single-spa"></script>
+  <script src="https://unpkg.com/single-spa-angularjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+</head>
+<body>
+
+
+  <div id="load-header-angular-here" />
+  <script src="/assets/js/angular_src.min.js"></script>
+  <!-- <script src="single-spa.config.js"></script> -->
+  <div ng-view></div>
+
+</body>
+</html>

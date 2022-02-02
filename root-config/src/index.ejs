@@ -10,6 +10,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.js"></script>
   <script src="https://unpkg.com/single-spa"></script>
   <script src="//localhost:8001/assets/js/angular_src.min.js"></script>
+  <script src="//localhost:8002/assets/js/angular_src.min.js"></script>
 
 
   <meta name="importmap-type" content="systemjs-importmap" />
@@ -25,7 +26,8 @@
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.8.2/lib/system/single-spa.min.js",
         "@react-mf/root-config": "//localhost:8000/react-mf-root-config.js",
         "@react-mf/styleguide": "//localhost:8004/react-mf-styleguide.js",
-        "@react-mf/angularjs": "//localhost:8001/assets/js/angular_src.min.js"
+        "@react-mf/angularjsHeader": "//localhost:8001/assets/js/angular_src.min.js",
+        "@react-mf/angularjs": "//localhost:8002/assets/js/angular_src.min.js"
 
       }
     }
@@ -73,8 +75,6 @@
           <p class="max-w-md">CTX should load here.</p>
         </route>
         <route default>
-          <br/>
-          <h1>Home Page...</h1>
           <!-- <application name="@react-mf/angularjs"></application> -->
         </route>
 
@@ -83,12 +83,14 @@
   </template>
 </head>
 <body>
-  <div id="load-angular-here" />
+  <div id="load-header-angular-here" ></div>
+  <div id="load-main-angular-here" ></div>
 
   <script>
     System.import('@react-mf/root-config');
     System.import('@react-mf/styleguide');
     System.import('@react-mf/angularjs');
+    System.import('@react-mf/angularjsHeader');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
